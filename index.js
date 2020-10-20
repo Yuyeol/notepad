@@ -30,7 +30,7 @@ const addElement = (title, id) => {
   li.appendChild(span);
   li.appendChild(delBtn);
   li.id = id;
-  li.addEventListener("click", selectTitle);
+  span.addEventListener("click", selectTitle);
   memoList.appendChild(li);
 };
 
@@ -81,9 +81,8 @@ const handleSubmit = (event) => {
 };
 
 const selectTitle = (event) => {
-  const selectedId = event.path[0].id;
+  const selectedId = event.path[1].id;
   if (selectedId) {
-    console.log(event);
     title = memo[selectedId - 1].title;
     contents = memo[selectedId - 1].contents;
     form.id = selectedId;
