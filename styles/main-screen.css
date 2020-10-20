@@ -1,0 +1,41 @@
+.main-screen {
+    display: flex;
+    justify-content: space-around;
+    background-color: antiquewhite;
+    height: 100vh;
+  }
+  
+  .list-block__list,
+  .memo-block {
+    width: 400px;
+    padding: 30px;
+  }
+  
+  .list-block__list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    border: 1px solid black;
+  }
+  
+  .memo-block__form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .memo-block__title {
+    height: 18px;
+    padding: 10px;
+    font-size: 20px;
+    margin: 10px 0;
+  }
+  
+  .memo-block__content {
+    height: 70vh;
+  }
+  
+  .memo-block__submit {
+    margin: 10px 100px;
+  }
+  

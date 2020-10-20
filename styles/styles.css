@@ -1,0 +1,6 @@
+@import "reset.css";
+@import "main-screen.css";
+body {
+  display: flex;
+  justify-content: center;
+}
