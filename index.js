@@ -3,27 +3,38 @@
 const textarea = document.querySelector(".js-textarea"),
   inputTitle = document.querySelector(".js-inputTitle"),
   form = document.querySelector("form"),
-  memoList = document.querySelector(".js-memoList");
+  memoList = document.querySelector(".js-memoList"),
+  addBtn = document.querySelector(".js-add"),
+  editBtn = document.querySelector(".js-edit");
 
 const MEMO = "memo";
 
 let memo = [];
 
+const isEmpty = (value) => {
+  if (typeof value == "undefined") return true;
+  else return false;
+};
+
 const uploadMemo = (event) => {
   const file = event.target.files[0];
-  const fileName = file.name.slice(0, [-4]);
-  inputTitle.value = fileName;
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    textarea.value = e.target.result;
-  };
-  reader.readAsText(file, "euc-kr");
+  if (!isEmpty(file)) {
+    const fileName = file.name.slice(0, [-4]);
+    inputTitle.value = fileName;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      textarea.value = e.target.result;
+    };
+    reader.readAsText(file, "euc-kr");
+  }
+  addBtn.style.display = "block";
+  editBtn.style.display = "none";
 };
 
 const addElement = (title, id) => {
   const li = document.createElement("li");
   const span = document.createElement("span");
-  const delBtn = document.createElement("button");
+  const delBtn = document.createElement("span");
   span.innerText = title;
   delBtn.innerText = "❌";
   delBtn.addEventListener("click", deleteMemo);
@@ -47,13 +58,11 @@ const addMemo = (title, contents) => {
 };
 
 const editMemo = (title, contents) => {
-  if (title !== "" || contents !== "") {
-    memo[form.id - 1].title = title;
-    memo[form.id - 1].contents = contents;
-    console.log(memo[form.id - 1]);
-    saveMemo();
-    location.reload(true);
-  }
+  memo[form.id - 1].title = title;
+  memo[form.id - 1].contents = contents;
+  console.log(memo[form.id - 1]);
+  saveMemo();
+  location.reload(true);
 };
 
 const loadMemo = () => {
@@ -69,9 +78,9 @@ const saveMemo = () => localStorage.setItem(MEMO, JSON.stringify(memo));
 const handleSubmit = (event) => {
   event.preventDefault();
   const btn = event.submitter.value;
-  const title = event.target[0].value;
-  const contents = event.target[1].value;
-  if (btn == "저장") {
+  const title = event.target[2].value;
+  const contents = event.target[3].value;
+  if (btn == "추가") {
     addMemo(title, contents);
   } else {
     editMemo(title, contents);
@@ -88,17 +97,25 @@ const selectTitle = (event) => {
     form.id = selectedId;
     inputTitle.value = title;
     textarea.value = contents;
+    addBtn.style.display = "none";
+    editBtn.style.display = "block";
   }
 };
 
 const deleteMemo = (event) => {
-  const btn = event.target;
   const li = btn.parentNode;
   memoList.removeChild(li);
   const refreshMemo = memo.filter((memo) => memo.id !== parseInt(li.id));
   memo = refreshMemo;
   saveMemo();
+  location.reload(true);
 };
 
-loadMemo();
-form.addEventListener("submit", handleSubmit);
+const init = () => {
+  addBtn.style.display = "block";
+  editBtn.style.display = "none";
+  loadMemo();
+  form.addEventListener("submit", handleSubmit);
+};
+
+init();

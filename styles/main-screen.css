@@ -1,45 +1,107 @@
 .main-screen {
   display: flex;
   justify-content: space-around;
-  background-color: antiquewhite;
-  height: 100vh;
+  background-color: white;
 }
 
-.list-block__list,
+.list-block,
 .memo-block {
   width: 400px;
-  padding: 30px;
+  height: 600px;
+  margin: 10px;
+  padding: 20px 20px;
+  border-radius: 25px;
+  background-color: #f9fdff;
+  box-shadow: 20px 20px 20px rgba(150, 162, 175, 0.15);
 }
 
-.list-block__list li {
+/* List block */
+
+.list-block {
+  background-color: #282f65;
+  color: #f9fdff;
+  width: 300px;
+  margin-right: -50px;
+  padding-right: 50px;
+}
+
+.list-block .list-block__list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  border: 1px solid black;
+  border-bottom: 1px solid #f9fdff;
+  font-size: 20px;
 }
-.list-block__list span {
+.list-block__list span:last-child {
+  display: none;
+}
+.list-block__list :hover > span:last-child {
+  display: block;
+}
+
+.list-block__list span:first-child {
   display: block;
   width: 400px;
-  padding: 15px 10px;
+  padding: 15px 10px 10px 10px;
 }
+
+/* Memo block */
 
 .memo-block__form {
   display: flex;
   flex-direction: column;
 }
 
+.memo-block__title,
+.memo-block__content {
+  border: none;
+  font-size: 20px;
+  padding: 15px 10px;
+  outline: none;
+  background-color: #f9fdff;
+}
+
 .memo-block__title {
   height: 18px;
-  padding: 10px;
-  font-size: 20px;
-  margin: 10px 0;
+  margin-top: 10px;
 }
 
 .memo-block__content {
-  height: 70vh;
+  padding-bottom: 70px;
+  resize: none;
 }
 
-.memo-block__submit {
-  margin: 10px 100px;
+.memo-block__btn-hidden {
+  display: none;
+}
+
+.memo-block__btn-box {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.memo-block__btn {
+  margin-left: 10px;
+  color: #f9fdff;
+  font-weight: 600;
+  padding: 10px 10px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px rgba(150, 162, 175, 0.15);
+}
+
+.memo-block__add,
+.memo-block__edit {
+  background-color: #282f65;
+  width: 100px;
+  border: none;
+  outline: none;
+}
+
+.memo-block__upload {
+  background-color: #1eb437;
+  width: 80px;
 }

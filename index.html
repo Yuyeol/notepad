@@ -12,14 +12,15 @@
             <ul class="js-memoList list-block__list"></ul>
         </div>
         <div class="js-memoBlock memo-block">
-            <input class="js-upload memo-block__upload" type="file" name="profile" onchange="uploadMemo(event)" accept=".txt">
+                <input id="upload" class="js-upload memo-block__btn-hidden" type="file" name="profile" onchange="uploadMemo(event)" accept=".txt">
             <form class="memo-block__form" method="POST">
-                <input class="js-inputTitle memo-block__title" type="text" placeholder="제목" required>
-                <textarea class="js-textarea memo-block__content" placeholder="내용" required></textarea>
-                <div class="memo-block__btn">
-                    <input class="js-save memo-block__submit" id="js-save" type="submit" value="저장">
-                    <input class="js-edit memo-block__submit" id="js-edit" type="submit" value="수정">
+                <div class="memo-block__btn-box">
+                    <label for="upload" class="memo-block__btn memo-block__upload">업로드</label>
+                    <input id="add" class="js-add memo-block__add memo-block__btn" type="submit" value="추가">
+                    <input id="edit" class="js-edit memo-block__edit memo-block__btn" type="submit" value="수정">
                 </div>
+                <input class="js-inputTitle memo-block__title" type="text" placeholder="제목" required>
+                <textarea class="js-textarea memo-block__content" placeholder="내용"></textarea>
             </form>
         </div>
     </main>
