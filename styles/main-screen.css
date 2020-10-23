@@ -9,7 +9,7 @@
   width: 400px;
   height: 600px;
   margin: 10px;
-  padding: 20px 20px;
+  padding: 15px;
   border-radius: 25px;
   background-color: #f9fdff;
   box-shadow: 20px 20px 20px rgba(150, 162, 175, 0.15);
@@ -23,6 +23,31 @@
   width: 300px;
   margin-right: -50px;
   padding-right: 50px;
+}
+
+.list-block__header {
+  font-size: 30px;
+  text-align: center;
+  background-color: white;
+  border-top-left-radius: 10px;
+  padding: 5px;
+}
+
+.list-block__header span:first-child {
+  color: #1eb437;
+}
+.list-block__header span:last-child {
+  color: #282f65;
+}
+
+.list-block__list {
+  height: 560px;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.list-block__list::-webkit-scrollbar {
+  display: none;
 }
 
 .list-block .list-block__list li {
@@ -52,22 +77,31 @@
   flex-direction: column;
 }
 
+.memo-block__input-box {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  margin-top: 10px;
+  background-color: white;
+}
+
 .memo-block__title,
 .memo-block__content {
   border: none;
   font-size: 20px;
   padding: 15px 10px;
   outline: none;
-  background-color: #f9fdff;
+  background-color: white;
+  border-radius: 20px;
 }
 
 .memo-block__title {
   height: 18px;
-  margin-top: 10px;
 }
 
 .memo-block__content {
   padding-bottom: 70px;
+  height: 400px;
   resize: none;
 }
 

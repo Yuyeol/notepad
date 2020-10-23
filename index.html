@@ -9,6 +9,9 @@
 <body>
     <main class="main-screen">
         <div class="list-block">
+            <div class="list-block__header">
+                <span>NOTE</span><span>PAD</span>
+            </div>
             <ul class="js-memoList list-block__list"></ul>
         </div>
         <div class="js-memoBlock memo-block">
@@ -19,8 +22,10 @@
                     <input id="add" class="js-add memo-block__add memo-block__btn" type="submit" value="추가">
                     <input id="edit" class="js-edit memo-block__edit memo-block__btn" type="submit" value="수정">
                 </div>
-                <input class="js-inputTitle memo-block__title" type="text" placeholder="제목" required>
-                <textarea class="js-textarea memo-block__content" placeholder="내용"></textarea>
+                <div class="memo-block__input-box">    
+                    <input class="js-inputTitle memo-block__title" type="text" placeholder="제목" required>
+                    <textarea class="js-textarea memo-block__content" placeholder="내용"></textarea>
+                </div>
             </form>
         </div>
     </main>

@@ -103,7 +103,8 @@ const selectTitle = (event) => {
 };
 
 const deleteMemo = (event) => {
-  const li = btn.parentNode;
+  console.log(event);
+  const li = event.target.parentNode;
   memoList.removeChild(li);
   const refreshMemo = memo.filter((memo) => memo.id !== parseInt(li.id));
   memo = refreshMemo;
