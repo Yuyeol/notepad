@@ -59,6 +59,7 @@
 }
 .list-block__list span:last-child {
   display: none;
+  margin-right: 5px;
 }
 .list-block__list :hover > span:last-child {
   display: block;
@@ -67,6 +68,9 @@
 .list-block__list span:first-child {
   display: block;
   width: 400px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   padding: 15px 10px 10px 10px;
 }
 
